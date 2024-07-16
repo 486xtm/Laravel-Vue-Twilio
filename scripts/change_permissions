@@ -1,0 +1,15 @@
+#!/bin/bash
+sudo chown -R $USER:www-data /var/www/app
+sudo chown -R $USER:www-data /var/www/app/storage
+sudo chown -R $USER:www-data /var/www/app/bootstrap/cache
+
+sudo chown -R $USER /var/www/app
+sudo chown -R www-data:www-data /var/www/app/storage/framework
+
+sudo chmod -R 775 /var/www/app/storage
+sudo chmod -R 775 /var/www/app/bootstrap
+sudo chown -R $USER:www-data public/
+
+cd /var/www/app
+composer install --optimize-autoload --no-dev
+npm install
